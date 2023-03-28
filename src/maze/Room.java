@@ -3,14 +3,14 @@
  */
 package maze;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Room {
-    public final List<Room> CONNECTED;
+    public final Set<Room> CONNECTED;
 
     public Room() {
-        CONNECTED = new ArrayList<Room>();
+        CONNECTED = new HashSet<Room>();
 
     }
 }
