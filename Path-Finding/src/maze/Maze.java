@@ -53,6 +53,9 @@ public class Maze {
         this.end = end;
     }
 
+    /**
+     * @return String
+     */
     @Override
     public String toString() {
         String out = " ";

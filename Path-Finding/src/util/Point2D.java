@@ -23,6 +23,10 @@ public class Point2D<E> {
         return this.X.equals(x) && this.Y.equals(y);
     }
 
+    /**
+     * @param obj
+     * @return boolean
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Point2D) {
@@ -33,6 +37,9 @@ public class Point2D<E> {
         return false;
     }
 
+    /**
+     * @return String
+     */
     @Override
     public String toString() {
         return this.getClass() + "(" + X + ", " + Y + ")";
