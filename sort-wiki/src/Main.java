@@ -8,7 +8,7 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        App<Session> app = new App<Session>(8000);
+        App<Session> app = new App<Session>(8080);
 
         app.getDefaultMessage().addHeader("Access-Control-Allow-Origin", "*");
 
