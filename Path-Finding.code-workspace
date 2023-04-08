@@ -1,13 +1,13 @@
 {
 	"folders": [
 		{
-			"path": "Path-Finding"
-		},
-		{
 			"path": "Compass"
 		},
 		{
 			"path": "frontend"
+		},
+		{
+			"path": "sort-wiki"
 		}
 	],
 	"settings": {
