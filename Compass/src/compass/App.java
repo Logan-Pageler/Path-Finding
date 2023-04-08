@@ -19,7 +19,7 @@ import compass.http.Conversation;
  * 
  * @author Logan Pageler
  * @since 3/30/2023
- * @param E session type when using sessions. Default use Session
+ * @param <E> session type when using sessions. Default use Session
  */
 public class App<E extends Session> {
 

@@ -38,6 +38,8 @@ public class ClientHandler<E extends Session> implements Consumer<Socket> {
      */
     public ClientHandler(ConcurrentMap<String, Conversation<E>> routes) {
         this.routes = routes;
+        session = null;
+        gen = null;
     }
 
     /**
@@ -51,6 +53,8 @@ public class ClientHandler<E extends Session> implements Consumer<Socket> {
         this.invalidRequest = handler.invalidRequest;
         this.defaultMessage = handler.defaultMessage;
         this.timeout = handler.timeout;
+        session = null;
+        gen = null;
         if (handler.gen != null) {
             this.gen = handler.gen;
         }
@@ -69,18 +73,15 @@ public class ClientHandler<E extends Session> implements Consumer<Socket> {
             connectionSocket.setSoTimeout(timeout);
             in = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream(), "UTF-8"));
             out = new PrintWriter(connectionSocket.getOutputStream(), true);
-            while (session != null) {
+            do {
 
                 readMessage();
-                System.out.println(request);
-                System.out.println(request.isValid());
                 handleMessage();
                 addHeaders(keepAlive);
-                System.out.println(response);
                 out.print(response);
                 out.flush();
 
-            }
+            } while (session != null);
             close();
         } catch (IOException e) {
             // e.printStackTrace();

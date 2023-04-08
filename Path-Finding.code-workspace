@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "Path-Finding"
+		},
+		{
+			"path": "Compass"
+		},
+		{
+			"path": "frontend"
+		}
+	],
+	"settings": {
+		"java.project.exportJar.targetPath": "${workspaceFolder}/jar/${workspaceFolderBasename}.jar",
+	}
+}
