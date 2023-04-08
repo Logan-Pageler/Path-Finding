@@ -1,5 +1,9 @@
+import java.util.Arrays;
+import java.util.List;
+
 import compass.App;
 import compass.http.Session;
+import sorters.QuickSort;
 
 public class Main {
 
@@ -17,8 +21,24 @@ public class Main {
             res.setBody("Hello Word!");
         });
 
-        app.addRoute("/ed", (req, res, ses) -> {
-            res.setBody("Hi Edward!");
+        app.addRoute("/quicksort", (req, res, ses) -> {
+            int[] arr = new int[20];
+
+            for (int i = 0; i < arr.length; i++) {
+                arr[i] = (int) (Math.random() * arr.length * 2);
+            }
+
+            List<int[]> list = QuickSort.sort(arr);
+
+            String out = "[";
+
+            for (int[] a : list) {
+                out += Arrays.toString(a) + ",";
+
+            }
+            out = out.substring(0, out.length() - 1);
+            out += "]";
+            res.setBody(out);
         });
 
         app.start();
