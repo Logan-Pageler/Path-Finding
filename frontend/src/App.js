@@ -15,27 +15,58 @@ function App() {
 
 function SortDisplay({ algorithm }) {
 
-  const [ snapshot, setSnapshot ] = useState([10, 20]);
+  var idx = 0;
+  var intervalId;
+  const [ snapshot, setSnapshot ] = useState([]);
+  var list;
 
-  function play() {
+  function load() {
     fetch(`http://localhost:8080/${algorithm}`)
     .then((res) => {
       return res.json();
-    }).then((snapshots) => {
-      snapshots.forEach((snapshot) => {
-        var i = 0;
-        var newSS = [];
-        snapshot.forEach((val) => {
-          var o = {index:i++, value:val};
-          newSS.push(o);
-          console.log("obj:", o);
-        });
-        snapshot = newSS;
-        console.log(`updated snapshot: ${snapshot}`);
-        setSnapshot(snapshot);
-      });
+    })
+    .then((snapshots) => {
+      var list = convertSnapshots(snapshots);
+      setSnapshot(list[0]);
+      return list;
     });
   }
+
+  function update() {
+    if (list !== undefined && idx > list.length) {
+      clearInterval(intervalId);
+      return;
+    }
+    setSnapshot(list[idx++]);
+  }
+
+  function sort() {
+    fetch(`http://localhost:8080/${algorithm}`)
+    .then((res) => {
+      return res.json();
+    })
+    .then((snapshots) => {
+      list = convertSnapshots(snapshots);
+      console.log("list:", list);
+      setSnapshot(list[0]);
+      intervalId = setInterval(update, 100);
+    });
+  }
+
+  function convertSnapshots(snapshots) {
+    var retval = [];
+    snapshots.forEach((snapshot) => {
+      var i = 0;
+      var newSS = [];
+      snapshot.forEach((val) => {
+        let o = {index:i++, value:val};
+        newSS.push(o);
+      });
+      retval.push(newSS);
+    });
+    return retval;
+  }
+
   return (
     <div className="SortDisplay">
       <h2>{algorithm}</h2>
@@ -44,7 +75,7 @@ function SortDisplay({ algorithm }) {
         <YAxis />
         <Bar dataKey="value" fill="#61dafb" />
       </BarChart>
-      <Button onClick={play} />
+      <Button onClick={sort} />
     </div>
   );
 }
@@ -55,6 +86,14 @@ function Button({ onClick }) {
         Sort (for now just prints to console)
       </button>
   );
+}
+
+function getRandom() {
+  const length = 20;
+  var arr = [];
+  for (var i = 0; i < length; i++)
+    arr.push(Math.random() * 20 * length);
+  return arr;
 }
 
 export default App;
