@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -38,6 +39,15 @@ public class Main {
                 arr[i] = (int) (Math.random() * arr.length * 2);
 
             List<int[]> list = BubbleSort.sort(arr);
+            res.setBody(stringifySnapshots(list));
+        });
+
+        app.addRoute("/random", (req, res, ses) -> {
+            int[] arr = new int[20];
+            for (int i = 0; i < arr.length; i++)
+                arr[i] = (int) (Math.random() * arr.length * 2);
+            List<int[]> list = new ArrayList<int[]>();
+            list.add(arr);
             res.setBody(stringifySnapshots(list));
         });
 
