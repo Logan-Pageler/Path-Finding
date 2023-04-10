@@ -22,19 +22,22 @@ function SortDisplay({ algorithm }) {
   var idx = 0;
   var intervalId = null;
   const [ snapshot, setSnapshot ] = useState([{index: 0, value: 0}]);
+  const [ isRunning, setIsRunning ] = useState(false);
   var list; var length;
 
   function update() {
     if (idx >= length) {
       clearInterval(intervalId);
-      intervalId = null;
       setSnapshot(list[--idx]);
+      setIsRunning(false);
       return;
     }
     setSnapshot(list[idx++]);
   }
 
   function sort() {
+    if (isRunning)
+      return;
     fetch(`http://localhost:8080/${algorithm}`)
     .then((res) => {
       return res.json();
@@ -42,8 +45,10 @@ function SortDisplay({ algorithm }) {
     .then((snapshots) => {
       list = convertSnapshots(snapshots);
       length = list.length;
-      if (intervalId === null)
+      if (!isRunning) {
         intervalId = setInterval(update, 75);
+        setIsRunning(true);
+      }
     });
   }
 
