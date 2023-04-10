@@ -1,9 +1,9 @@
 import './App.css';
 
 async function test() {
-  const response = await fetch("http://localhost:8080/");
-  //const jsonData = await response.json();
-  //console.log(jsonData);
+  const response = await fetch("http://localhost:8080/quicksort");
+  const jsonData = await response.json();
+  console.log(jsonData);
   
 }
 
