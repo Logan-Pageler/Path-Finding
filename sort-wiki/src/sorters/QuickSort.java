@@ -13,10 +13,8 @@ public class QuickSort {
     }
 
     private static void partition(int[] arr, int start, int end, List<int[]> list) {
-        if (end - start <= 1) {
+        if (end - start <= 1)
             return;
-        }
-
         int pivotPos = (int) (Math.random() * (end - start) + start);
         int pivot = arr[pivotPos];
         int val2;
@@ -28,12 +26,12 @@ public class QuickSort {
                 if (i != j) {
                     arr[j] = arr[i];
                     arr[i] = val2;
-                    list.add(Arrays.copyOf(arr, arr.length));
                 }
                 i++;
                 if (i == pivotPos)
                     i++;
             }
+            list.add(Arrays.copyOf(arr, arr.length));
         }
         if (i < pivotPos) {
             arr[pivotPos] = arr[i];
@@ -45,7 +43,6 @@ public class QuickSort {
             arr[i] = pivot;
             list.add(Arrays.copyOf(arr, arr.length));
         }
-
         partition(arr, start, i, list);
         partition(arr, i + 1, end, list);
     }

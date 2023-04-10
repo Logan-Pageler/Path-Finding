@@ -17,7 +17,7 @@ public class SelectionSort {
 	 * accedning order.
 	 * @param array, array of inegers that needs to be sorted
 	 */
-	public static void selection(int[] array) {
+	public static ArrayList<int[]> sort(int[] array) {
 		ArrayList<int[]> list = new ArrayList<>();
 		int minIndex = 0;
 		for (int i = 0; i < array.length-1; i++) {
@@ -26,10 +26,12 @@ public class SelectionSort {
 				if (array[minIndex] > array[j]) {
 					minIndex = j;
 				}
+				list.add(Arrays.copyOf(array, array.length));
 			}
 			swap(array, i, minIndex);
 			list.add(Arrays.copyOf(array, array.length));
 		}
+		return list;
 	}
 
     /**

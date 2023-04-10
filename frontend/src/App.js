@@ -8,6 +8,9 @@ function App() {
       <header className="App-header">
         <SortDisplay algorithm={"quicksort"} />
         <SortDisplay algorithm={"bubblesort"} />
+        <SortDisplay algorithm={"selectionsort"} />
+        <SortDisplay algorithm={"insertionsort"} />
+        <SortDisplay algorithm={"heapsort"} />
       </header>
     </div>
   );
@@ -16,13 +19,14 @@ function App() {
 function SortDisplay({ algorithm }) {
 
   var idx = 0;
-  var intervalId;
+  var intervalId = null;
   const [ snapshot, setSnapshot ] = useState([{index: 0, value: 0}]);
   var list; var length;
 
   function update() {
     if (idx >= length) {
       clearInterval(intervalId);
+      intervalId = null;
       setSnapshot(list[--idx]);
       return;
     }
@@ -37,7 +41,8 @@ function SortDisplay({ algorithm }) {
     .then((snapshots) => {
       list = convertSnapshots(snapshots);
       length = list.length;
-      intervalId = setInterval(update, 75);
+      if (intervalId === null)
+        intervalId = setInterval(update, 75);
     });
   }
 
