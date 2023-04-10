@@ -55,6 +55,12 @@ public class Main {
             res.setBody(stringifySnapshots(list));
         });
 
+        app.addRoute("/shellsort", (req, res, ses) -> {
+            int[] arr = generateArray();
+            List<int[]> list = ShellSort.sort(arr);
+            res.setBody(stringifySnapshots(list));
+        });
+
         app.start();
     }
 

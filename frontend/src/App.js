@@ -11,6 +11,7 @@ function App() {
         <SortDisplay algorithm={"selectionsort"} />
         <SortDisplay algorithm={"insertionsort"} />
         <SortDisplay algorithm={"heapsort"} />
+        <SortDisplay algorithm={"shellsort"} />
       </header>
     </div>
   );
