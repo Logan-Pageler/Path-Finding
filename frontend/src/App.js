@@ -17,24 +17,13 @@ function SortDisplay({ algorithm }) {
 
   var idx = 0;
   var intervalId;
-  const [ snapshot, setSnapshot ] = useState([]);
-  var list;
-
-  function load() {
-    fetch(`http://localhost:8080/${algorithm}`)
-    .then((res) => {
-      return res.json();
-    })
-    .then((snapshots) => {
-      var list = convertSnapshots(snapshots);
-      setSnapshot(list[0]);
-      return list;
-    });
-  }
+  const [ snapshot, setSnapshot ] = useState([{index: 0, value: 0}]);
+  var list; var length;
 
   function update() {
-    if (list !== undefined && idx > list.length) {
+    if (idx >= length) {
       clearInterval(intervalId);
+      setSnapshot(list[--idx]);
       return;
     }
     setSnapshot(list[idx++]);
@@ -47,9 +36,8 @@ function SortDisplay({ algorithm }) {
     })
     .then((snapshots) => {
       list = convertSnapshots(snapshots);
-      console.log("list:", list);
-      setSnapshot(list[0]);
-      intervalId = setInterval(update, 100);
+      length = list.length;
+      intervalId = setInterval(update, 75);
     });
   }
 
@@ -71,29 +59,21 @@ function SortDisplay({ algorithm }) {
     <div className="SortDisplay">
       <h2>{algorithm}</h2>
       <BarChart width={500} height={250} data={snapshot}>
-        <XAxis dataKey="index" />
-        <YAxis />
+        <XAxis dataKey="index" tick={false} />
+        <YAxis hide={true} />
         <Bar dataKey="value" fill="#61dafb" />
       </BarChart>
-      <Button onClick={sort} />
+      <Button onClick={sort} value="Sort" />
     </div>
   );
 }
 
-function Button({ onClick }) {
+function Button({ onClick, value }) {
   return (
-      <button className="Button" onClick={(onClick)}>
-        Sort (for now just prints to console)
-      </button>
+    <button className="Button" onClick={onClick}>
+      {value}
+    </button>
   );
-}
-
-function getRandom() {
-  const length = 20;
-  var arr = [];
-  for (var i = 0; i < length; i++)
-    arr.push(Math.random() * 20 * length);
-  return arr;
 }
 
 export default App;
