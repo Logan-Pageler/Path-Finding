@@ -1,9 +1,12 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import compass.App;
 import compass.http.Session;
+
 import sorters.QuickSort;
+import sorters.BubbleSort;
 
 public class Main {
 
@@ -23,24 +26,40 @@ public class Main {
 
         app.addRoute("/quicksort", (req, res, ses) -> {
             int[] arr = new int[20];
-
-            for (int i = 0; i < arr.length; i++) {
+            for (int i = 0; i < arr.length; i++)
                 arr[i] = (int) (Math.random() * arr.length * 2);
-            }
 
             List<int[]> list = QuickSort.sort(arr);
+            res.setBody(stringifySnapshots(list));
+        });
 
-            String out = "[";
+        app.addRoute("/bubblesort", (req, res, ses) -> {
+            int[] arr = new int[20];
+            for (int i = 0; i < arr.length; i++)
+                arr[i] = (int) (Math.random() * arr.length * 2);
 
-            for (int[] a : list) {
-                out += Arrays.toString(a) + ",";
+            List<int[]> list = BubbleSort.sort(arr);
+            res.setBody(stringifySnapshots(list));
+        });
 
-            }
-            out = out.substring(0, out.length() - 1);
-            out += "]";
-            res.setBody(out);
+        app.addRoute("/random", (req, res, ses) -> {
+            int[] arr = new int[20];
+            for (int i = 0; i < arr.length; i++)
+                arr[i] = (int) (Math.random() * arr.length * 2);
+            List<int[]> list = new ArrayList<int[]>();
+            list.add(arr);
+            res.setBody(stringifySnapshots(list));
         });
 
         app.start();
+    }
+
+    private static String stringifySnapshots(List<int[]> list) {
+        String out = "[";
+        for (int[] a : list)
+            out += Arrays.toString(a) + ",";
+        out = out.substring(0, out.length() - 1);
+        out += "]";
+        return out;
     }
 }

@@ -9,7 +9,6 @@ public class QuickSort {
         List<int[]> list = new ArrayList<int[]>();
         list.add(Arrays.copyOf(arr, arr.length));
         partition(arr, 0, arr.length, list);
-
         return list;
     }
 
@@ -49,6 +48,5 @@ public class QuickSort {
 
         partition(arr, start, i, list);
         partition(arr, i + 1, end, list);
-
     }
 }

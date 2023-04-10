@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.SortDisplay {
+  border: 1px solid #282c34;
+  border-radius: calc(10px + 2vmin);
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
