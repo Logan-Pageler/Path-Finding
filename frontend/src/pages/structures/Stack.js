@@ -6,6 +6,7 @@
  */
 import { Button, TextField } from "@mui/material";
 import React from "react";
+import "./Stack.css"
 
 
 function Stack() {
@@ -56,10 +57,12 @@ function Stack() {
             <TextField
             variant="filled"
             onChange={handleChange}
+            class={"stack-input"}
+            sx={{ input: { color: 'white' } }}
             >
 
             </TextField>
-            <Button onClick={handleClick}>
+            <Button onClick={handleClick} >
                 Solve
             </Button>
             <p>
