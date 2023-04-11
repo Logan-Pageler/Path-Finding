@@ -18,7 +18,7 @@ function Stack() {
     }
 
     function handleClick() {
-        fetch(`http://localhost:8080/stack?` + new URLSearchParams({
+        fetch(`http://174.138.108.50:8080/stack?` + new URLSearchParams({
             expression
     }))
         .then((res) => {
@@ -35,7 +35,7 @@ function Stack() {
                 &emsp;&emsp;Stacks are a data structures that allow for only the most
                 recently added element to be accessed. Think of it like a 
                 pancake stack. Pancakes will always be added to the top of
-                the stack as they come off the pan. Then Each pancake will 
+                the stack as they come off the pan. Then each pancake will 
                 be eaten from the top down, with the most recently added
                 eaten first.
                 <br />
@@ -49,7 +49,7 @@ function Stack() {
 
             <p>
                 Stacks have many uses, one of which is to solve expressions. <br />
-                Feel free to try it out bellow by inserting mathematical <br />
+                Feel free to try it out below by inserting mathematical <br />
                 expressions using '+', '-', '\', '*', '(', ')'.
             </p>
             <TextField
