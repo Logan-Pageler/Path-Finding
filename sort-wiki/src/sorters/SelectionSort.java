@@ -31,7 +31,7 @@ public class SelectionSort {
 				if (array[minIndex] > array[j])
 					minIndex = j;
 				list.add(Arrays.copyOf(array, array.length));
-				}
+			}
 			swap(array, i, minIndex);
 			list.add(Arrays.copyOf(array, array.length));
 		}
