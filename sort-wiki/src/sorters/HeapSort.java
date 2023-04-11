@@ -14,6 +14,7 @@ public class HeapSort {
 
 	public static ArrayList<int[]> sort(int[] array) {
 		ArrayList<int[]> list = new ArrayList<>();
+		list.add(Arrays.copyOf(array, array.length));
 		int k = (int)Math.floor(array.length/2);
 		
 		for(int i = k; i > 0; i--)

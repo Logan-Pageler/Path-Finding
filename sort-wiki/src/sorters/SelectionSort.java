@@ -19,6 +19,7 @@ public class SelectionSort {
 	 */
 	public static ArrayList<int[]> sort(int[] array) {
 		ArrayList<int[]> list = new ArrayList<>();
+		list.add(Arrays.copyOf(array, array.length));
 		int minIndex = 0;
 		for (int i = 0; i < array.length-1; i++) {
 			minIndex = i;

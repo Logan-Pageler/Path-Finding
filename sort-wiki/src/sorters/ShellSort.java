@@ -7,6 +7,7 @@ public class ShellSort {
     
     public static ArrayList<int[]> sort(int[] arr) {
         ArrayList<int[]> list = new ArrayList<>();
+        list.add(Arrays.copyOf(arr, arr.length));
         int n = arr.length;
         for (int k = n/2; k > 0; k /= 2) {
             for (int i = k; i < n; i++) {
