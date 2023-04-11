@@ -5,6 +5,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import BubbleSort from './pages/sorters/BubbleSort';
 import QuickSort from './pages/sorters/QuickSort';
 import Stack from './pages/structures/Stack';
+import ShellSort from './pages/sorters/ShellSort';
+import HeapSort from './pages/sorters/HeapSort';
+import InsertionSort from './pages/sorters/InerstionSort';
+import SelectionSort from './pages/sorters/SelectionSort';
 
 function App() {
   return (
@@ -19,10 +23,10 @@ function App() {
                 <Route index element={<Home />} />
                 <Route path="bubblesort" element={<BubbleSort />} />
                 <Route path="quicksort" element={<QuickSort />} />
-                <Route path="selectionsort" element={<BubbleSort />} />
-                <Route path="insertionsort" element={<QuickSort />} />
-                <Route path="heapsort" element={<BubbleSort />} />
-                <Route path="shellsort" element={<QuickSort />} />
+                <Route path="selectionsort" element={<SelectionSort />} />
+                <Route path="insertionsort" element={<InsertionSort />} />
+                <Route path="heapsort" element={<HeapSort />} />
+                <Route path="shellsort" element={<ShellSort />} />
                 <Route path="stack" element={<Stack />} />
               </Route>
             </Routes>
