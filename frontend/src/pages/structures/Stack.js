@@ -6,6 +6,7 @@
  */
 import { Button, TextField } from "@mui/material";
 import React from "react";
+import "./Stack.css"
 
 function Stack() {
 
@@ -46,16 +47,14 @@ function Stack() {
             </p>
             <br/>
 
-            <p className="description">
+            <p>
                 Stacks have many uses, one of which is to solve expressions. <br />
-                Feel free to try it out bellow by inserting <br />
-                mathmatical expressions using '+', '-', '\', <br />
-                '*', '(', ')'.
+                Feel free to try it out bellow by inserting mathematical <br />
+                expressions using '+', '-', '\', '*', '(', ')'.
             </p>
             <TextField
             variant="filled"
             onChange={handleChange}
-            class={"stack-input"}
             sx={{ input: { color: 'white' } }}
             >
 
