@@ -24,6 +24,7 @@ public class Server implements Runnable {
     private Consumer<Socket> clientHandler;
     private Thread serverThread;
     private AtomicBoolean running;
+    ThreadPoolExecutor executor;
 
     /**
      * Create server to listen on port
@@ -35,6 +36,7 @@ public class Server implements Runnable {
         this.port = port;
         this.threads = 10;
         running = new AtomicBoolean(false);
+        executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(threads);
     }
 
     /**
@@ -48,6 +50,7 @@ public class Server implements Runnable {
         this.threads = threads;
         this.port = port;
         running = new AtomicBoolean(false);
+        executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(threads);
     }
 
     /**
@@ -86,7 +89,6 @@ public class Server implements Runnable {
 
     @Override
     public void run() {
-        ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(threads);
         try (ServerSocket serverSocket = new ServerSocket(port)) {
             while (running.get()) {
                 Socket connectionSocket = serverSocket.accept();
@@ -99,12 +101,12 @@ public class Server implements Runnable {
                         e.printStackTrace();
                     }
                 });
-
             }
             serverSocket.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
 }

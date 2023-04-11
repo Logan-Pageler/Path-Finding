@@ -327,4 +327,13 @@ public class Message {
 
         return out;
     }
+
+    /**
+     * Gets query arguments.
+     * 
+     * @return map of query arguments
+     */
+    public ConcurrentMap<String, String> getQuery() {
+        return query;
+    }
 }
