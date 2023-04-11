@@ -27,16 +27,11 @@ public class SelectionSort {
 		int minIndex = 0;
 		for (int i = 0; i < array.length - 1; i++) {
 			minIndex = i;
-<<<<<<< HEAD
 			for (int j = i + 1; j < array.length; j++) {
-				if (array[minIndex] > array[j]) {
-=======
-			for (int j = i+1; j < array.length; j++) {
 				if (array[minIndex] > array[j])
->>>>>>> f4a14953ffcbad2c658d3fdeb8d0016838ce5690
 					minIndex = j;
 				list.add(Arrays.copyOf(array, array.length));
-			}
+				}
 			swap(array, i, minIndex);
 			list.add(Arrays.copyOf(array, array.length));
 		}
