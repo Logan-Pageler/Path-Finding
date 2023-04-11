@@ -52,7 +52,7 @@ function Navbar() {
     return (
         <AppBar wrap='nowrap'>
             <Toolbar>
-                <h1 style={{ flex: 1 }}>Sort-Wiki</h1>
+                <h1 style={{ flex: 1, textAlign: "left" }}>Sort-Wiki</h1>
                 <Stack direction="row" spacing={2}>
                     <Button
                         onClick={() => { navigate("/");}}

@@ -27,38 +27,43 @@ public class Main {
         });
 
         app.addRoute("/quicksort", (req, res, ses) -> {
-            int[] arr = generateArray(20);
+            int[] arr = generateArray(
+                Integer.parseInt(req.getQuery().get("size")));
             List<int[]> list = QuickSort.sort(arr);
             res.setBody(stringifySnapshots(list));
         });
 
         app.addRoute("/bubblesort", (req, res, ses) -> {
-            int[] arr = generateArray(20);
+            int[] arr = generateArray(
+                Integer.parseInt(req.getQuery().get("size")));
             List<int[]> list = BubbleSort.sort(arr);
             res.setBody(stringifySnapshots(list));
         });
 
         app.addRoute("/selectionsort", (req, res, ses) -> {
-            int[] arr = generateArray(20);
+            int[] arr = generateArray(
+                Integer.parseInt(req.getQuery().get("size")));
             List<int[]> list = SelectionSort.sort(arr);
             res.setBody(stringifySnapshots(list));
         });
 
         app.addRoute("/insertionsort", (req, res, ses) -> {
-            int[] arr = generateArray(20);
+            int[] arr = generateArray(
+                Integer.parseInt(req.getQuery().get("size")));
             List<int[]> list = InsertionSort.sort(arr);
             res.setBody(stringifySnapshots(list));
         });
 
         app.addRoute("/heapsort", (req, res, ses) -> {
-            int[] arr = generateHeapArray(20);
+            int[] arr = generateHeapArray(
+                Integer.parseInt(req.getQuery().get("size")));
             List<int[]> list = HeapSort.sort(arr);
             res.setBody(stringifySnapshots(list));
         });
 
         app.addRoute("/shellsort", (req, res, ses) -> {
-            System.out.println(req.getQuery());
-            int[] arr = generateArray(20);
+            int[] arr = generateArray(
+                Integer.parseInt(req.getQuery().get("size")));
             List<int[]> list = ShellSort.sort(arr);
             res.setBody(stringifySnapshots(list));
         });
@@ -77,14 +82,14 @@ public class Main {
     private static int[] generateArray(int n) {
         int[] arr = new int[n];
         for (int i = 0; i < n; i++)
-            arr[i] = (int) (Math.random() * n * 2);
+            arr[i] = (int) (Math.random() * n * 2 + 1);
         return arr;
     }
 
     private static int[] generateHeapArray(int n) {
         int[] arr = new int[n + 1];
         for (int i = 1; i < n + 1; i++)
-            arr[i] = (int) (Math.random() * n * 2);
+            arr[i] = (int) (Math.random() * n * 2 + 1);
         return arr;
     }
 

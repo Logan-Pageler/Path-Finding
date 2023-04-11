@@ -9,9 +9,9 @@
 import { BarChart, YAxis, XAxis, Bar } from 'recharts';
 import { useState } from 'react';
 import { useRef, useEffect } from 'react';
-import { Button } from '@mui/material';
+import { Button, Slider } from '@mui/material';
 
-function SortDisplay({ algorithm }) {
+function SortDisplay({ algorithm, displayName }) {
 
   var idx = 0;
 
@@ -20,6 +20,8 @@ function SortDisplay({ algorithm }) {
   const isRunning = useRef(false);
   const isSorted = useRef(false);
   const intervalId = useRef(null);
+
+  const [ size, setSize ] = useState(20);
 
   function update() {
     if (idx >= list.length) {
@@ -35,7 +37,7 @@ function SortDisplay({ algorithm }) {
   function randomize() {
     if (isRunning.current)
       return;
-    fetch(`http://localhost:8080/${algorithm}`)
+    fetch(`http://localhost:8080/${algorithm}?size=${size}`)
     .then((res) => {
       return res.json();
     })
@@ -47,7 +49,7 @@ function SortDisplay({ algorithm }) {
 
   function sort() {
     if (!isRunning.current && !isSorted.current) {
-      intervalId.current = setInterval(update, 75);
+      intervalId.current = setInterval(update, 800/size);
       isRunning.current = true;
     }
   }
@@ -78,7 +80,7 @@ function SortDisplay({ algorithm }) {
 
   return (
     <div className="SortDisplay">
-      <h2>{algorithm}</h2>
+      <h2>{displayName}</h2>
       <BarChart width={500} height={250} data={snapshot}>
         <XAxis dataKey="index" tick={false} />
         <YAxis hide={true} />
@@ -93,6 +95,25 @@ function SortDisplay({ algorithm }) {
           onClick={randomize}
           sx={{ m: 4, borderColor: 'white', color: 'white', background: '#282c34' }}
         >Randomize</Button>
+      </span>
+      <br/>
+      <span>
+        <span style={{marginTop: 2, fontSize: "large", fontWeight: "bold"}}>
+          Size
+        </span>
+        <Slider id="sizeSlider"
+          defaultValue={20}
+          valueLabelDisplay="auto"
+          min={1}
+          max={100}
+          onChange={(_, value) => {
+            setSize(value);
+          }}
+          onChangeCommitted={(_, value) => {
+            setSize(value);
+            randomize();
+          }}
+        />
       </span>
     </div>
   );

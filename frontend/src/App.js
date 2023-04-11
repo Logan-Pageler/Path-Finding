@@ -13,7 +13,7 @@ import QuickSort from './pages/sorters/QuickSort';
 import Stack from './pages/structures/Stack';
 import ShellSort from './pages/sorters/ShellSort';
 import HeapSort from './pages/sorters/HeapSort';
-import InsertionSort from './pages/sorters/InerstionSort';
+import InsertionSort from './pages/sorters/InsertionSort';
 import SelectionSort from './pages/sorters/SelectionSort';
 
 function App() {
@@ -21,8 +21,13 @@ function App() {
     <>
       <BrowserRouter>
         <div className="App">
+<<<<<<< HEAD
         <Navbar/>
           <header className="App-header">
+=======
+          <Navbar/>
+            <header className="App-header">
+>>>>>>> f4a14953ffcbad2c658d3fdeb8d0016838ce5690
             <Routes>
               <Route path="/">
                 <Route index element={<Home />} />
