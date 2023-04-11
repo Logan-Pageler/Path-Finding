@@ -16,7 +16,6 @@ import java.util.Arrays;
  * @author Evan Ohme
  */
 public class ShellSort {
-<<<<<<< HEAD
 
     /**
      * Sorts an array using shell sort. Note:
@@ -27,14 +26,6 @@ public class ShellSort {
      * @param arr array to sort
      * @return list of all array states
      */
-=======
-    
-    /**
-	 * uses the shellsort algorithm to sort integers in an array in an
-	 * ascending order.
-	 * @param arr, array of inegers that needs to be sorted
-	 */
->>>>>>> f4a14953ffcbad2c658d3fdeb8d0016838ce5690
     public static ArrayList<int[]> sort(int[] arr) {
         ArrayList<int[]> list = new ArrayList<>();
         list.add(Arrays.copyOf(arr, arr.length));

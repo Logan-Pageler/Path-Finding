@@ -19,7 +19,6 @@ import java.util.List;
 public class QuickSort {
 
     /**
-<<<<<<< HEAD
      * Sorts an array using Quick sort. Note:
      * This is done in place so param arr will
      * be changes. Returns the state of the array
@@ -28,12 +27,6 @@ public class QuickSort {
      * @param arr array to sort
      * @return list of all array states
      */
-=======
-	 * uses the quicksort algorithm to sort integers in an array in an
-	 * ascending order.
-	 * @param arr, array of inegers that needs to be sorted
-	 */
->>>>>>> f4a14953ffcbad2c658d3fdeb8d0016838ce5690
     public static List<int[]> sort(int[] arr) {
         List<int[]> list = new ArrayList<int[]>();
         list.add(Arrays.copyOf(arr, arr.length));
@@ -42,11 +35,12 @@ public class QuickSort {
     }
 
     /**
-	 * partitions a given subarray around a selected pivot
-	 * @param arr, array of inegers that needs to be sorted
-	 * @param start, the first index of the subarray
-     * @param end, the last index of the subarray
-     * @param list, used for saving array order snapshots
+     * partitions a given subarray around a selected pivot
+     * 
+     * @param arr,   array of inegers that needs to be sorted
+     * @param start, the first index of the subarray
+     * @param end,   the last index of the subarray
+     * @param list,  used for saving array order snapshots
      */
     private static void partition(int[] arr, int start, int end, List<int[]> list) {
         if (end - start <= 1)
