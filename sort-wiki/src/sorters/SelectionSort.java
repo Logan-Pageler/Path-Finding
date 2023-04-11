@@ -24,9 +24,8 @@ public class SelectionSort {
 		for (int i = 0; i < array.length-1; i++) {
 			minIndex = i;
 			for (int j = i+1; j < array.length; j++) {
-				if (array[minIndex] > array[j]) {
+				if (array[minIndex] > array[j])
 					minIndex = j;
-				}
 				list.add(Arrays.copyOf(array, array.length));
 			}
 			swap(array, i, minIndex);

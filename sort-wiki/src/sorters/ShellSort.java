@@ -1,10 +1,22 @@
 package sorters;
 
+/*
+ * File: ShellSort.java
+ * Author: Evan Ohme
+ * Purpose: Implements the sorting algorithm Shell Sort.
+ * Class: CSC 345
+ */
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ShellSort {
     
+    /**
+	 * uses the shellsort algorithm to sort integers in an array in an
+	 * ascending order.
+	 * @param arr, array of inegers that needs to be sorted
+	 */
     public static ArrayList<int[]> sort(int[] arr) {
         ArrayList<int[]> list = new ArrayList<>();
         list.add(Arrays.copyOf(arr, arr.length));
@@ -23,5 +35,4 @@ public class ShellSort {
         }
         return list;
     }
-
 }
