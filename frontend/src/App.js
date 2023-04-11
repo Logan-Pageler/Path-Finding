@@ -7,16 +7,15 @@ import QuickSort from './pages/sorters/QuickSort';
 import Stack from './pages/structures/Stack';
 import ShellSort from './pages/sorters/ShellSort';
 import HeapSort from './pages/sorters/HeapSort';
-import InsertionSort from './pages/sorters/InerstionSort';
+import InsertionSort from './pages/sorters/InsertionSort';
 import SelectionSort from './pages/sorters/SelectionSort';
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        
         <div className="App">
-        <Navbar/>
+          <Navbar/>
             <header className="App-header">
             <Routes>
               <Route path="/">

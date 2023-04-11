@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useRef, useEffect } from 'react';
 import { Button, Slider } from '@mui/material';
 
-function SortDisplay({ algorithm }) {
+function SortDisplay({ algorithm, displayName }) {
 
   var idx = 0;
 
@@ -72,7 +72,7 @@ function SortDisplay({ algorithm }) {
 
   return (
     <div className="SortDisplay">
-      <h2>{algorithm}</h2>
+      <h2>{displayName}</h2>
       <BarChart width={500} height={250} data={snapshot}>
         <XAxis dataKey="index" tick={false} />
         <YAxis hide={true} />

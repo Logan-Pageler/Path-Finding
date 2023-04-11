@@ -3,9 +3,9 @@
 }
 
 .App-header {
-  padding-top: 15vh;
+  padding-top: 10vh;
   background-color: #282c34;
-  min-height: 85vh;
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,4 +30,10 @@
   margin: 6px;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.description {
+  margin: 12px 20%;
+  text-align: left;
+  font-size: x-large;
 }
