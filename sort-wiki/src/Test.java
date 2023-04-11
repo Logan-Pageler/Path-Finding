@@ -9,7 +9,7 @@ import sorters.*;
  */
 
 
-public class TestSort {
+public class Test {
 	private static int[] arrayOne = new int[11];
 	private static int[] arrayTwo = new int[51];
 	private static int[] arrayThree = new int[101];

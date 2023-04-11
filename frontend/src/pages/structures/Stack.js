@@ -48,16 +48,15 @@ function Stack() {
 
             <p className="description">
                 Stacks have many uses, one of which is to solve expressions. <br />
-                Feel free to try it out bellow by inserting <br />
-                mathmatical expressions using '+', '-', '\', <br />
+                Feel free to try it out bellow by inserting mathematical<br />
+                expressions using '+', '-', '\', <br />
                 '*', '(', ')'.
             </p>
             <TextField
             variant="filled"
             onChange={handleChange}
             class={"stack-input"}
-            sx={{ input: { color: 'white' } }}
-            >
+            sx={{ input: { color: 'white' } }}>
 
             </TextField>
             <Button onClick={handleClick} >
