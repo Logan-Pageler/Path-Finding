@@ -74,16 +74,16 @@ function SortDisplay({ algorithm }) {
       <BarChart width={500} height={250} data={snapshot}>
         <XAxis dataKey="index" tick={false} />
         <YAxis hide={true} />
-        <Bar dataKey="value" fill="#61dafb" />
+        <Bar dataKey="value" fill="white" />
       </BarChart>
       <span>
         <Button variant="outlined"
           onClick={sort}
-          sx={{ m: 4, color: 'white', background: '#61dafb' }}
+          sx={{ m: 4, borderColor: 'white', color: 'white', background: '#282c34' }}
         >Sort</Button>
         <Button variant="outlined"
           onClick={randomize}
-          sx={{ my: 2, color: 'white', background: '#61dafb' }}
+          sx={{ m: 4, borderColor: 'white', color: 'white', background: '#282c34' }}
         >Randomize</Button>
       </span>
     </div>
