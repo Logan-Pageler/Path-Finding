@@ -6,6 +6,7 @@
  */
 import { Button, TextField } from "@mui/material";
 import React from "react";
+import "./Stack.css"
 
 function Stack() {
 
@@ -34,7 +35,7 @@ function Stack() {
                 &emsp;&emsp;Stacks are a data structures that allow for only the most
                 recently added element to be accessed. Think of it like a 
                 pancake stack. Pancakes will always be added to the top of
-                the stack as they come off the pan. Then Each pancake will 
+                the stack as they come off the pan. Then each pancake will 
                 be eaten from the top down, with the most recently added
                 eaten first.
                 <br />
@@ -46,17 +47,16 @@ function Stack() {
             </p>
             <br/>
 
-            <p className="description">
+            <p>
                 Stacks have many uses, one of which is to solve expressions. <br />
-                Feel free to try it out bellow by inserting mathematical<br />
-                expressions using '+', '-', '\', <br />
-                '*', '(', ')'.
+                Feel free to try it out below by inserting mathematical <br />
+                expressions using '+', '-', '\', '*', '(', ')'.
             </p>
             <TextField
             variant="filled"
             onChange={handleChange}
-            class={"stack-input"}
-            sx={{ input: { color: 'white' } }}>
+            sx={{ input: { color: 'white' } }}
+            >
 
             </TextField>
             <Button onClick={handleClick} >
