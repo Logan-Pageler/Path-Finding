@@ -1,20 +1,32 @@
 package structures;
 
+/**
+ * Program that uses a stack to solve arithmetic.
+ * 
+ * @author Logan Pageler
+ * @since 4/10/2023
+ */
 public class ArithmeticSolver {
 
-    public static int evaluate(String exp) {
+    /**
+     * Evaluates an expression and returns the value
+     * 
+     * @param expression expression string to evaluate
+     * @return Expression output
+     */
+    public static int evaluate(String expression) {
         Stack<Integer> operands = new Stack<>(); // Operand stack
         Stack<Character> operations = new Stack<>(); // Operator stack
-        for (int i = 0; i < exp.length(); i++) {
-            char c = exp.charAt(i);
+        for (int i = 0; i < expression.length(); i++) {
+            char c = expression.charAt(i);
             if (Character.isDigit(c)) {
 
                 int num = 0;
                 while (Character.isDigit(c)) {
                     num = num * 10 + (c - '0');
                     i++;
-                    if (i < exp.length()) {
-                        c = exp.charAt(i);
+                    if (i < expression.length()) {
+                        c = expression.charAt(i);
                     } else {
                         break;
                     }

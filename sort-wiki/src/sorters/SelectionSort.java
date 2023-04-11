@@ -11,19 +11,23 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class SelectionSort {
-    
-    /**
-	 * uses the selection sort algorithm to sort integers in an array in an
-	 * accedning order.
-	 * @param array, array of inegers that needs to be sorted
+
+	/**
+	 * Sorts an array using selection sort. Note:
+	 * This is done in place so param arr will
+	 * be changes. Returns the state of the array
+	 * after each cycle
+	 * 
+	 * @param arr array to sort
+	 * @return list of all array states
 	 */
 	public static ArrayList<int[]> sort(int[] array) {
 		ArrayList<int[]> list = new ArrayList<>();
 		list.add(Arrays.copyOf(array, array.length));
 		int minIndex = 0;
-		for (int i = 0; i < array.length-1; i++) {
+		for (int i = 0; i < array.length - 1; i++) {
 			minIndex = i;
-			for (int j = i+1; j < array.length; j++) {
+			for (int j = i + 1; j < array.length; j++) {
 				if (array[minIndex] > array[j]) {
 					minIndex = j;
 				}
@@ -35,8 +39,9 @@ public class SelectionSort {
 		return list;
 	}
 
-    /**
+	/**
 	 * swaps two arrays in an array
+	 * 
 	 * @param i,     first index that needs to be swapped
 	 * @param j,     the second index that needs to be swaped
 	 * @param array, array of integers that will be used to swap the arrays

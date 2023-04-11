@@ -10,7 +10,11 @@ import structures.ArithmeticSolver;
 public class Main {
 
     /**
-     * @param args
+     * Server API to handle requests to sort arrays and solve
+     * mathematical expressions.
+     * 
+     * @author Logan Pageler, Evan Ohme
+     * @since 4/10/2023
      */
     public static void main(String[] args) {
 
@@ -19,7 +23,6 @@ public class Main {
         app.getDefaultMessage().addHeader("Access-Control-Allow-Origin", "*");
 
         app.addRoute("/", (req, res, ses) -> {
-            System.out.println(req);
             res.setBody("Hello Word!");
         });
 

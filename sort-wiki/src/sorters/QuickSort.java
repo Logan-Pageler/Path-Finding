@@ -4,7 +4,22 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Class to sort an array using quick sort algorithm.
+ * 
+ * @author Logan Pageler
+ */
 public class QuickSort {
+
+    /**
+     * Sorts an array using Quick sort. Note:
+     * This is done in place so param arr will
+     * be changes. Returns the state of the array
+     * after each cycle
+     * 
+     * @param arr array to sort
+     * @return list of all array states
+     */
     public static List<int[]> sort(int[] arr) {
         List<int[]> list = new ArrayList<int[]>();
         list.add(Arrays.copyOf(arr, arr.length));

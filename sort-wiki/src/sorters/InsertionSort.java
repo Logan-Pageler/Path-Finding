@@ -11,11 +11,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class InsertionSort {
-    
+
 	/**
-	 * uses the Insertion sort algorithm to sort integers in an array in an
-	 * accedning order.
-	 * @param array, array of integers, the array that will be sorted
+	 * Sorts an array using insertion sort. Note:
+	 * This is done in place so param arr will
+	 * be changes. Returns the state of the array
+	 * after each cycle
+	 * 
+	 * @param arr array to sort
+	 * @return list of all array states
 	 */
 	public static ArrayList<int[]> sort(int[] array) {
 		ArrayList<int[]> list = new ArrayList<>();
@@ -26,13 +30,13 @@ public class InsertionSort {
 			int j = i - 1;
 			int comp = array[j];
 			while (j >= 0 && comp > val) {
-				array[j+1] = comp;
+				array[j + 1] = comp;
 				j--;
 				if (j >= 0)
 					comp = array[j];
 				list.add(Arrays.copyOf(array, array.length));
 			}
-			array[j+1] = val;
+			array[j + 1] = val;
 		}
 		list.add(Arrays.copyOf(array, array.length));
 		return list;

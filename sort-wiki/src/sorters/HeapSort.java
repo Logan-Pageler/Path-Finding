@@ -1,32 +1,40 @@
 package sorters;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /*
  * File: HeapSort.java
  * Author: Michelle Ramos Hernandez
  * Purpose: Implements the sorting algorithm Heap Sort.
  * Class: CSC 345
  */
-
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class HeapSort {
 
+	/**
+	 * Sorts an array using heap sort. Note:
+	 * This is done in place so param arr will
+	 * be changes. Returns the state of the array
+	 * after each cycle
+	 * 
+	 * @param arr array to sort
+	 * @return list of all array states
+	 */
 	public static ArrayList<int[]> sort(int[] array) {
 		ArrayList<int[]> list = new ArrayList<>();
 		list.add(Arrays.copyOf(array, array.length));
-		int k = (int)Math.floor(array.length/2);
-		
-		for(int i = k; i > 0; i--)
-			bubbleDown(list, array, i, array.length-1);
-		
-		int count = array.length-1;
-		for(int i = 1; i < array.length; i++) {
-			while(count > 0) { 
+		int k = (int) Math.floor(array.length / 2);
+
+		for (int i = k; i > 0; i--)
+			bubbleDown(list, array, i, array.length - 1);
+
+		int count = array.length - 1;
+		for (int i = 1; i < array.length; i++) {
+			while (count > 0) {
 				swap(array, 1, count);
-				bubbleDown(list, array, 1, count-i);
-				count--; 
-			}	
+				bubbleDown(list, array, 1, count - i);
+				count--;
+			}
 		}
 		list.add(Arrays.copyOfRange(array, 1, array.length));
 		return list;
@@ -35,8 +43,10 @@ public class HeapSort {
 	/**
 	 * bubbles down the chosen index element to its proper position
 	 * according to max heap order.
+	 * 
 	 * @param array, array of integers that will be used to swap the arrays
-	 * @param i, starting index that needs to be bubbled down to make inot heap order
+	 * @param i,     starting index that needs to be bubbled down to make inot heap
+	 *               order
 	 */
 	private static void bubbleDown(ArrayList<int[]> list, int[] array, int i, int stop) {
 		if (left(i) <= stop) {
@@ -57,6 +67,7 @@ public class HeapSort {
 
 	/**
 	 * swaps two arrays in an array
+	 * 
 	 * @param i,     first index that needs to be swapped
 	 * @param j,     the second index that needs to be swaped
 	 * @param array, array of integers that will be used to swap the arrays
@@ -69,6 +80,7 @@ public class HeapSort {
 
 	/**
 	 * compares if two elemts are larger than teh other
+	 * 
 	 * @param array, array of integers that will be used to swap the arrays
 	 * @param left,  the index of the left child
 	 * @param right, the index of teh right child
@@ -83,6 +95,7 @@ public class HeapSort {
 
 	/**
 	 * finds the left child of the parent
+	 * 
 	 * @param i, int the index of where the current patient is in the array
 	 * @return int, the left child of the parents index
 	 */
@@ -92,6 +105,7 @@ public class HeapSort {
 
 	/**
 	 * finds the right child of the parent
+	 * 
 	 * @param i, int the index of where the current patient is in the array
 	 * @return int, the right child of the parents index
 	 */
