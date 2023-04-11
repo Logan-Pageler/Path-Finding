@@ -5,6 +5,7 @@ import compass.App;
 import compass.http.Session;
 
 import sorters.*;
+import structures.ArithmeticSolver;
 
 public class Main {
 
@@ -64,6 +65,14 @@ public class Main {
             res.setBody(stringifySnapshots(list));
         });
 
+        app.addRoute("/stack", (req, res, ses) -> {
+            try {
+                res.setBody("" + ArithmeticSolver.evaluate(req.getQuery().get("expression")));
+            } catch (Exception e) {
+                res.setBody("Invalid Format!");
+            }
+        });
+
         app.start();
     }
 
@@ -75,8 +84,8 @@ public class Main {
     }
 
     private static int[] generateHeapArray(int n) {
-        int[] arr = new int[n+1];
-        for (int i = 1; i < n+1; i++)
+        int[] arr = new int[n + 1];
+        for (int i = 1; i < n + 1; i++)
             arr[i] = (int) (Math.random() * n * 2 + 1);
         return arr;
     }

@@ -74,7 +74,6 @@ public class ClientHandler<E extends Session> implements Consumer<Socket> {
             in = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream(), "UTF-8"));
             out = new PrintWriter(connectionSocket.getOutputStream(), true);
             do {
-
                 readMessage();
                 handleMessage();
                 addHeaders(keepAlive);

@@ -103,7 +103,13 @@ public class Message {
                 route = routeStr[0];
                 if (routeStr.length > 1) {
 
-                    String[] queries = routeStr[1].replace("%20", " ").split("&");
+                    String[] queries = routeStr[1].replace("%20", " ")
+                            .replace("%28", "(")
+                            .replace("%29", ")")
+                            .replace("%2B", "+")
+                            .replace("%2F", "/")
+                            .replace("%5E", "^")
+                            .split("&");
                     for (String q : queries) {
                         String[] pair = q.split("=");
                         if (pair.length < 2) {
