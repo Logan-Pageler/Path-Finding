@@ -1,6 +1,7 @@
 import { BarChart, YAxis, XAxis, Bar } from 'recharts';
 import { useState } from 'react';
 import { useRef, useEffect } from 'react';
+import { Button } from '@mui/material';
 
 function SortDisplay({ algorithm }) {
 
@@ -76,18 +77,16 @@ function SortDisplay({ algorithm }) {
         <Bar dataKey="value" fill="#61dafb" />
       </BarChart>
       <span>
-        <Button onClick={sort} value="Sort" />
-        <Button onClick={randomize} value="Randomize" />
+        <Button variant="outlined"
+          onClick={sort}
+          sx={{ m: 4, color: 'white', background: '#61dafb' }}
+        >Sort</Button>
+        <Button variant="outlined"
+          onClick={randomize}
+          sx={{ my: 2, color: 'white', background: '#61dafb' }}
+        >Randomize</Button>
       </span>
     </div>
-  );
-}
-
-function Button({ onClick, value }) {
-  return (
-    <button className="Button" onClick={onClick}>
-      {value}
-    </button>
   );
 }
 
