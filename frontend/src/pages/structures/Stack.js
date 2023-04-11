@@ -6,7 +6,6 @@
  */
 import { Button, TextField } from "@mui/material";
 import React from "react";
-import "./Stack.css"
 
 
 function Stack() {
@@ -19,7 +18,7 @@ function Stack() {
     }
 
     function handleClick() {
-        fetch(`http://174.138.108.50:8080/stack?` + new URLSearchParams({
+        fetch(`http://localhost:8080/stack?` + new URLSearchParams({
             expression
     }))
         .then((res) => {
