@@ -4,29 +4,42 @@ import { useState } from 'react';
 function SortDisplay({ algorithm }) {
 
   var idx = 0;
-  var intervalId;
+
   const [ snapshot, setSnapshot ] = useState([{index: 0, value: 0}]);
-  var list; var length;
+  const [ list, setList ] = useState([[{index: 0, value: 0}]]);
+  const isRunning = useRef(false);
+  const isSorted = useRef(false);
+  const intervalId = useRef(null);
 
   function update() {
-    if (idx >= length) {
-      clearInterval(intervalId);
-      setSnapshot(list[--idx]);
+    if (idx >= list.length) {
+      clearInterval(intervalId.current);
+      setSnapshot(list[idx-1]);
+      isRunning.current = false;
+      isSorted.current = true;
       return;
     }
     setSnapshot(list[idx++]);
   }
 
-  function sort() {
+  function randomize() {
+    if (isRunning.current)
+      return;
     fetch(`http://localhost:8080/${algorithm}`)
     .then((res) => {
       return res.json();
     })
     .then((snapshots) => {
-      list = convertSnapshots(snapshots);
-      length = list.length;
-      intervalId = setInterval(update, 75);
+      setList(convertSnapshots(snapshots));
+      isSorted.current = false;
     });
+  }
+
+  function sort() {
+    if (!isRunning.current && !isSorted.current) {
+      intervalId.current = setInterval(update, 75);
+      isRunning.current = true;
+    }
   }
 
   function convertSnapshots(snapshots) {
@@ -43,6 +56,16 @@ function SortDisplay({ algorithm }) {
     return retval;
   }
 
+  useEffect(() => {
+    randomize();
+    // the below comment is needed, it ignores an annoying warning
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);  // <- empty array means 'run once on first render'
+
+  useEffect(() => {
+    setSnapshot(list[0]);
+  }, [list]); 
+
   return (
     <div className="SortDisplay">
       <h2>{algorithm}</h2>
@@ -51,7 +74,10 @@ function SortDisplay({ algorithm }) {
         <YAxis hide={true} />
         <Bar dataKey="value" fill="#61dafb" />
       </BarChart>
-      <Button onClick={sort} value="Sort" />
+      <span>
+        <Button onClick={sort} value="Sort" />
+        <Button onClick={randomize} value="Randomize" />
+      </span>
     </div>
   );
 }

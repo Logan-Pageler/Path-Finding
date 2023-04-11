@@ -7,6 +7,7 @@ import java.util.List;
 public class BubbleSort {
 	public static List<int[]> sort(int[] arr) {
 		List<int[]> list = new ArrayList<int[]>();
+		list.add(Arrays.copyOf(arr, arr.length));
 		for (int i = 0; i < arr.length; i++) {
 			for (int j = 0; j < arr.length - i - 1; j++) {
 				if (arr[j] > arr[j+1])
