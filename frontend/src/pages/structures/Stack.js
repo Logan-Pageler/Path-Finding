@@ -12,7 +12,9 @@ function Stack() {
                 mathmatical expressions using '+', '-', '\', <br />
                 '*', '(', ')'.
             </p>
-            <TextField>
+            <TextField
+            variant="filled"
+            >
 
             </TextField>
         </>

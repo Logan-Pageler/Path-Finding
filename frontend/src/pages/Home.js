@@ -1,14 +1,17 @@
-import SortDisplay from "../components/SortDisplay";
+import "./Home.css"
 
 function Home() {
     return (
         <>
-            <SortDisplay algorithm={"quicksort"} />
-            <SortDisplay algorithm={"bubblesort"} />
-            <SortDisplay algorithm={"selectionsort"} />
-            <SortDisplay algorithm={"insertionsort"} />
-            <SortDisplay algorithm={"heapsort"} />
-            <SortDisplay algorithm={"shellsort"} />
+            <h class="Sort-Wiki-Title">
+                SORT-WIKI
+            </h>
+            <p>
+            The Goal of the program is to create an accessible algorithm learning tool. <br />
+            This website will give insight on the chosen algorithms such as: an overview, <br />
+            best and worst case runtimes, benefits, uses, and a visualization of how <br />
+            each algorithm works after each step. 
+            </p>
         </>
 
     );

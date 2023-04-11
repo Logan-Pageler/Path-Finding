@@ -5,11 +5,10 @@
 .App-header {
   padding-top: 15vh;
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 85vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -31,4 +30,9 @@
   margin: 6px;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.Sort-Wiki-Title {
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-size: 50;
 }

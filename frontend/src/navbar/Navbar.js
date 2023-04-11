@@ -54,12 +54,6 @@ function Navbar() {
                     >
                         Home
                     </Button>
-                    <Button
-                        onClick={() => { navigate("/about");}}
-                        sx={{ my: 2, color: 'white', display: 'block' }}
-                    >
-                        About
-                    </Button>
                     
                       <Button
                           onClick={handleOpen}
@@ -79,53 +73,41 @@ function Navbar() {
                             <MenuList
                               autoFocusItem={open}
                             >
-                              <MenuItem >
-                                  <Button
+                              <MenuItem 
                                       onClick={() => { navigate("/quicksort");}}
                                       sx={{ my: 2, color: 'white', display: 'block' }}
-                                  >
+                                    >
                                       Quick Sort
-                                  </Button>
                               </MenuItem>
-                              <MenuItem >
-                                  <Button
+                              <MenuItem
                                       onClick={() => { navigate("/bubblesort");}}
                                       sx={{ my: 2, color: 'white', display: 'block' }}
                                   >
                                       Bubble Sort
-                                  </Button>
                               </MenuItem>
-                              <MenuItem >
-                                  <Button
+                              <MenuItem
                                       onClick={() => { navigate("/selectionsort");}}
                                       sx={{ my: 2, color: 'white', display: 'block' }}
                                   >
                                       Selection Sort
-                                  </Button>
                               </MenuItem>
-                              <MenuItem >
-                                  <Button
+                              <MenuItem 
                                       onClick={() => { navigate("/insertionsort");}}
                                       sx={{ my: 2, color: 'white', display: 'block' }}
                                   >
                                       Insertion Sort
-                                  </Button>
                               </MenuItem>
-                              <MenuItem >
-                                  <Button
+                              <MenuItem 
                                       onClick={() => { navigate("/heapsort");}}
                                       sx={{ my: 2, color: 'white', display: 'block' }}
                                   >
                                       Heap Sort
-                                  </Button>
                               </MenuItem>
-                              <MenuItem >
-                                  <Button
+                              <MenuItem 
                                       onClick={() => { navigate("/shellsort");}}
                                       sx={{ my: 2, color: 'white', display: 'block' }}
                                   >
                                       Shell Sort
-                                  </Button>
                               </MenuItem>
                             </MenuList>
                             </Paper>
@@ -149,13 +131,11 @@ function Navbar() {
                             <MenuList
                               autoFocusItem={open2}
                             >
-                              <MenuItem >
-                                  <Button
+                              <MenuItem 
                                       onClick={() => { navigate("/stack");}}
                                       sx={{ my: 2, color: 'white', display: 'block' }}
                                   >
                                       Stack
-                                  </Button>
                               </MenuItem>
                             </MenuList>
                             </Paper>
