@@ -1,3 +1,9 @@
+/**
+ * Main App Page. Includes Router and Page format
+ * 
+ * @author Logan Pageler
+ * @since 4/10/2023
+ */
 import './App.css';
 import Home from './pages/Home';
 import Navbar from './navbar/Navbar';
@@ -14,10 +20,9 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        
         <div className="App">
         <Navbar/>
-            <header className="App-header">
+          <header className="App-header">
             <Routes>
               <Route path="/">
                 <Route index element={<Home />} />

@@ -1,3 +1,11 @@
+/**
+ * Component to create visualizations of algorithms.
+ * Takes the algorithm name as string and its display
+ * name. Makes request to the server at the endpoint
+ * specified by the display name.
+ * 
+ * @author Evan Ohme
+ */
 import { BarChart, YAxis, XAxis, Bar } from 'recharts';
 import { useState } from 'react';
 import { useRef, useEffect } from 'react';

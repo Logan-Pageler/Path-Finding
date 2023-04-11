@@ -1,3 +1,9 @@
+/**
+ * Top navbar element for each page. In charge
+ * of most links and organization.
+ * 
+ * @author Logan Pageler
+ */
 import { Button, AppBar, Toolbar, MenuList, MenuItem, ClickAwayListener, Popper, Paper, Stack} from "@mui/material";
 import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";

@@ -1,3 +1,8 @@
+/**
+ * Home page component.
+ * 
+ * @author Logan Pageler
+ */
 import "./Home.css"
 
 function Home() {

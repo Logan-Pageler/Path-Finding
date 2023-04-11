@@ -1,3 +1,9 @@
+/**
+ * Stack Page Component. Makes requests
+ * to the /stack endpoint of the API.
+ * 
+ * @author Logan Pageler
+ */
 import { Button, TextField } from "@mui/material";
 import React from "react";
 
