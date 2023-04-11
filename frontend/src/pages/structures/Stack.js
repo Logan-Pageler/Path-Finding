@@ -1,7 +1,26 @@
-import { TextField } from "@mui/material";
+import { Button, TextField } from "@mui/material";
+import React from "react";
 
 
 function Stack() {
+
+    const [expression, setExpression] = React.useState("");
+    const [output, setOutput] = React.useState("hello");
+
+    function handleChange(event) {
+        setExpression(event.target.value);
+    }
+
+    function handleClick() {
+        fetch(`http://localhost:8080/stack?` + new URLSearchParams({
+            expression
+    }))
+        .then((res) => {
+            res.text().then(function(responseString) { 
+                setOutput(responseString);
+            });
+        })
+    }
 
     return (
         <>
@@ -14,9 +33,17 @@ function Stack() {
             </p>
             <TextField
             variant="filled"
+            onChange={handleChange}
             >
 
             </TextField>
+            <Button onClick={handleClick}>
+                Solve
+            </Button>
+            <p>
+                Output: {output}
+            </p>
+
         </>
     );
 }
