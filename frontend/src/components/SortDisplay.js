@@ -37,7 +37,7 @@ function SortDisplay({ algorithm, displayName }) {
   function randomize() {
     if (isRunning.current)
       return;
-    fetch(`http://localhost:8080/${algorithm}?size=${size}`)
+    fetch(`http://174.138.108.50:8080/${algorithm}?size=${size}`)
     .then((res) => {
       return res.json();
     })

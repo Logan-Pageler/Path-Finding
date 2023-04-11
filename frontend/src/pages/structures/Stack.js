@@ -18,7 +18,7 @@ function Stack() {
     }
 
     function handleClick() {
-        fetch(`http://localhost:8080/stack?` + new URLSearchParams({
+        fetch(`http://174.138.108.50:8080/stack?` + new URLSearchParams({
             expression
     }))
         .then((res) => {
