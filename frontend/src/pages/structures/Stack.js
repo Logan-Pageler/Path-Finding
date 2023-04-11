@@ -7,7 +7,6 @@
 import { Button, TextField } from "@mui/material";
 import React from "react";
 
-
 function Stack() {
 
     const [expression, setExpression] = React.useState("");
