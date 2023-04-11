@@ -21,13 +21,8 @@ function App() {
     <>
       <BrowserRouter>
         <div className="App">
-<<<<<<< HEAD
         <Navbar/>
           <header className="App-header">
-=======
-          <Navbar/>
-            <header className="App-header">
->>>>>>> f4a14953ffcbad2c658d3fdeb8d0016838ce5690
             <Routes>
               <Route path="/">
                 <Route index element={<Home />} />
