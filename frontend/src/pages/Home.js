@@ -1,4 +1,4 @@
-
+import SortDisplay from "../components/SortDisplay";
 
 function Home() {
     return (

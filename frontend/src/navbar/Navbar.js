@@ -1,11 +1,12 @@
-import { Button, AppBar, Toolbar, MenuList, MenuItem, Menu, ClickAwayListener, Popper, Grow, Paper, makeStyles} from "@mui/material";
+import { Button, AppBar, Toolbar, MenuList, MenuItem, Menu, ClickAwayListener, Popper, Grow, Paper} from "@mui/material";
 import { Box } from "@mui/system";
+import { makeStyles } from "@mui/styles";
 import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 const styles = makeStyles((theme) => ({
   styledPaper: {
-    
+    backgroundcolor: 'black'
   }
 }))
 
@@ -63,12 +64,11 @@ function Navbar() {
                       >
 
                         <ClickAwayListener onClickAway={handleClose}>
-                          <Paper elevation={3} style={{backgroundcolor: 'black'}}>
+                          <Paper elevation={3} className={styles.styledPaper}>
                             <MenuList
                               autoFocusItem={open}
-                              style={{color: 'black'}}
                             >
-                              <MenuItem style={{color: 'black'}}>
+                              <MenuItem >
                                   <Button
                                       onClick={() => { navigate("/quicksort");}}
                                       sx={{ my: 2, color: 'white', display: 'block' }}
@@ -76,7 +76,7 @@ function Navbar() {
                                       Quick Sort
                                   </Button>
                               </MenuItem>
-                              <MenuItem style={{color: 'black'}}>
+                              <MenuItem >
                                   <Button
                                       onClick={() => { navigate("/bubblesort");}}
                                       sx={{ my: 2, color: 'white', display: 'block' }}

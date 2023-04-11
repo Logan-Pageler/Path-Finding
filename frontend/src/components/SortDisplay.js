@@ -1,5 +1,6 @@
 import { BarChart, YAxis, XAxis, Bar } from 'recharts';
 import { useState } from 'react';
+import { useRef, useEffect } from 'react';
 
 function SortDisplay({ algorithm }) {
 
